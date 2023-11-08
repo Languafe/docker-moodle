@@ -1,0 +1,23 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8888:80"
+    volumes:
+      - ./site.conf:/etc/nginx/conf.d/default.conf
+      - ./moodle:/moodle
+      - moodledata:/moodledata
+  php:
+    image: php:7-fpm
+    volumes:
+      - ./moodle:/moodle
+      - moodledata:/data/moodledata
+  db:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: moodle
+      MARIADB_PASSWORD: moodle
+      MARIADB_DATABASE: moodle
+      MARIADB_USER: moodle
+volumes:
+  moodledata: {}
