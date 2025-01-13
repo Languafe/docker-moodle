@@ -1,17 +1,11 @@
 services:
-  web:
-    build: .
-    ports:
-      - "8888:80"
-    volumes:
-      - ./site.conf:/etc/nginx/conf.d/default.conf
-      - ./moodle:/moodle
-      - moodledata:/moodledata
   php:
-    image: php:7-fpm
+    image: moodlehq/moodle-php-apache:7.4
+    ports:
+      - "8100:80"
     volumes:
-      - ./moodle:/moodle
-      - moodledata:/data/moodledata
+      - ./moodle:/var/www/html
+      - moodledata:/var/www/moodledata
   db:
     image: mariadb
     environment:
