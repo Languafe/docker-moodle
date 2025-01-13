@@ -4,6 +4,8 @@ Trying to create a repo to make it super simple to spin up a local Moodle.
 
 Moodle has been added as a [submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules).
 
+> This setup doesn't include development setup for the H5P plugin itself. To work on the plugin with this setup that you can clone `github.com:/h5p/moodle-mod_hvp` directly into `moodle/mod/hvp`. Moodle will automatically detect the presence of the plugin and prompt you to perform the installation/database modifications that are required.
+
 ## TL;DR
 
 Clone this repo with the `--recurse-submodules` flag added to automatically initialize and update the moodle submodule.
@@ -17,6 +19,12 @@ If you already cloned the repo without doing this, you must manually initialize 
 ```
 git submodule update --init
 ```
+
+Ensure `www-data` has write permissions on the `moodle` directory.
+
+`sudo chown www-data:www-data -R moodle/`
+
+Visit http://localhost:8100 and perform the installation.
 
 ## Updating moodle
 
