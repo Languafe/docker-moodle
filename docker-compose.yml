@@ -8,13 +8,11 @@ services:
       - moodledata:/var/www/moodledata
   db:
     image: mariadb
+    command: mysqld --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
     environment:
       MARIADB_ROOT_PASSWORD: moodle
       MARIADB_PASSWORD: moodle
       MARIADB_DATABASE: moodle
       MARIADB_USER: moodle
-    command:
-      - "--character-set-server=utf8mb4"
-      - "--collation-server=utf8mb4_unicode_ci"
 volumes:
   moodledata: {}
