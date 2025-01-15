@@ -7,7 +7,8 @@ services:
       - ./moodle:/var/www/html
       - moodledata:/var/www/moodledata
   db:
-    image: mysql:8
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
     environment:
       MYSQL_ROOT_PASSWORD: moodle
       MYSQL_PASSWORD: moodle
