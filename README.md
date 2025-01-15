@@ -27,6 +27,17 @@ docker compose exec php bash
 chown www-data:www-data -R ./
 ```
 
+## Apple Silicon
+
+Create a docker-compose.override.yml to specify the platform for the MySQL
+image:
+
+```
+services:
+  db:
+    platform: linux/arm64
+```
+
 Visit http://localhost:8100 and perform the installation.
 
 ## Updating moodle
