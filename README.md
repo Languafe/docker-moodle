@@ -22,7 +22,10 @@ git submodule update --init
 
 Ensure `www-data` has write permissions on the `moodle` directory.
 
-`sudo chown www-data:www-data -R moodle/`
+```
+docker compose exec php bash
+chown www-data:www-data -R ./
+```
 
 Visit http://localhost:8100 and perform the installation.
 
