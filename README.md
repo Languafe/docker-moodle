@@ -19,7 +19,13 @@ If you already cloned the repo without doing this, you must manually initialize 
 ```
 git submodule update --init
 ```
+### MacOS
+In the container please run 
+```bash
+chown www-data:www-data -R ./
+```
 
+### Else
 Ensure `www-data` has write permissions on the `moodle` directory.
 
 `sudo chown www-data:www-data -R moodle/`
